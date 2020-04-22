@@ -8,7 +8,7 @@
 		"parameters": {
 			"folderPath": {
 				"type": "string",
-				"defaultValue": "@pipeline().parameters.folderPathh"
+				"defaultValue": "@pipeline().parameters.folderPath"
 			},
 			"fileName": {
 				"type": "string",
