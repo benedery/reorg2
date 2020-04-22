@@ -5,12 +5,21 @@
 			"referenceName": "lakeshare",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"folderPath": {
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.folderPathh"
+			},
+			"fileName": {
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.fileName"
+			}
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
-				"type": "AzureFileStorageLocation",
-				"folderPath": "voicerecordings"
+				"type": "AzureFileStorageLocation"
 			}
 		}
 	},
