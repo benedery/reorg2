@@ -1,0 +1,17 @@
+{
+	"name": "trigger2",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/private/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/eff84aa6-34a8-4e3d-ad33-858b498cd734/resourceGroups/coronaMafat/providers/Microsoft.Storage/storageAccounts/mafatcoronaprivate",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
