@@ -1,0 +1,18 @@
+{
+	"name": "target_share_folder",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lakeshare",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureFileStorageLocation",
+				"folderPath": "default"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

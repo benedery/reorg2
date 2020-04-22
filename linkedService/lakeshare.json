@@ -1,0 +1,20 @@
+{
+	"name": "lakeshare",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureFileStorage",
+		"typeProperties": {
+			"host": "\\\\mfatlake.file.core.windows.net\\default",
+			"userId": "AZURE\\mfatlake",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "key_vault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "targetfilesharekey"
+			}
+		}
+	}
+}
