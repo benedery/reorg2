@@ -23,17 +23,17 @@
 			"type": "string",
 			"defaultValue": "P-PRIVATE-BLOB-CSTRING"
 		},
-		"file_created_properties_sync_pipeline_parameters_folderPath": {
+		"trigger1_properties_sync_pipeline_parameters_folderPath": {
 			"type": "string",
 			"defaultValue": "@triggerBody().folderPath"
 		},
-		"file_created_properties_sync_pipeline_parameters_fileName": {
+		"trigger1_properties_sync_pipeline_parameters_fileName": {
 			"type": "string",
 			"defaultValue": "@triggerBody().fileName"
 		},
-		"file_created_properties_typeProperties_scope": {
+		"trigger1_properties_typeProperties_scope": {
 			"type": "string",
-			"defaultValue": "/subscriptions/779b3f2b-726d-430d-a1b7-f8c309b3bbd0/resourceGroups/datalake/providers/Microsoft.Storage/storageAccounts/mfatstaging"
+			"defaultValue": "/subscriptions/eff84aa6-34a8-4e3d-ad33-858b498cd734/resourceGroups/coronaMafat/providers/Microsoft.Storage/storageAccounts/mafatcoronaprivate"
 		},
 		"containerUri": {
 			"type": "string",
@@ -74,14 +74,14 @@
 					"landing_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('landing_properties_typeProperties_connectionString_secretName')]"
 					},
-					"file_created_properties_sync_pipeline_parameters_folderPath": {
-						"value": "[parameters('file_created_properties_sync_pipeline_parameters_folderPath')]"
+					"trigger1_properties_sync_pipeline_parameters_folderPath": {
+						"value": "[parameters('trigger1_properties_sync_pipeline_parameters_folderPath')]"
 					},
-					"file_created_properties_sync_pipeline_parameters_fileName": {
-						"value": "[parameters('file_created_properties_sync_pipeline_parameters_fileName')]"
+					"trigger1_properties_sync_pipeline_parameters_fileName": {
+						"value": "[parameters('trigger1_properties_sync_pipeline_parameters_fileName')]"
 					},
-					"file_created_properties_typeProperties_scope": {
-						"value": "[parameters('file_created_properties_typeProperties_scope')]"
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
 					}
 				}
 			},

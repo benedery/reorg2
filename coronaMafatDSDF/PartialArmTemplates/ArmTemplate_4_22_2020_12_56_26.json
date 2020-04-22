@@ -6,34 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "coronaMafatDSDF"
-		},
-		"key_vault_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://coronaMafatKeyVaultNew.vault.azure.net/"
-		},
-		"lakeshare_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "\\\\mafatcoronaprivate.file.core.windows.net\\voicerecording"
-		},
-		"lakeshare_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "AZURE\\mafatcoronaprivate"
-		},
-		"landing_properties_typeProperties_connectionString_secretName": {
-			"type": "string",
-			"defaultValue": "P-PRIVATE-BLOB-CSTRING"
-		},
-		"trigger1_properties_sync_pipeline_parameters_folderPath": {
-			"type": "string",
-			"defaultValue": "@triggerBody().folderPath"
-		},
-		"trigger1_properties_sync_pipeline_parameters_fileName": {
-			"type": "string",
-			"defaultValue": "@triggerBody().fileName"
-		},
-		"trigger1_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/eff84aa6-34a8-4e3d-ad33-858b498cd734/resourceGroups/coronaMafat/providers/Microsoft.Storage/storageAccounts/mafatcoronaprivate"
 		}
 	},
 	"variables": {
@@ -94,8 +66,7 @@
 						"outputs": [
 							{
 								"referenceName": "target_share_folder",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -184,7 +155,7 @@
 				"annotations": [],
 				"type": "AzureKeyVault",
 				"typeProperties": {
-					"baseUrl": "[parameters('key_vault_properties_typeProperties_baseUrl')]"
+					"baseUrl": "https://coronaMafatKeyVaultNew.vault.azure.net/"
 				}
 			},
 			"dependsOn": []
@@ -197,8 +168,8 @@
 				"annotations": [],
 				"type": "AzureFileStorage",
 				"typeProperties": {
-					"host": "[parameters('lakeshare_properties_typeProperties_host')]",
-					"userId": "[parameters('lakeshare_properties_typeProperties_userId')]",
+					"host": "\\\\mafatcoronaprivate.file.core.windows.net\\voicerecording",
+					"userId": "AZURE\\mafatcoronaprivate",
 					"password": {
 						"type": "AzureKeyVaultSecret",
 						"store": {
@@ -227,7 +198,7 @@
 							"referenceName": "key_vault",
 							"type": "LinkedServiceReference"
 						},
-						"secretName": "[parameters('landing_properties_typeProperties_connectionString_secretName')]"
+						"secretName": "P-PRIVATE-BLOB-CSTRING"
 					}
 				}
 			},
@@ -249,8 +220,8 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"folderPath": "[parameters('trigger1_properties_sync_pipeline_parameters_folderPath')]",
-							"fileName": "[parameters('trigger1_properties_sync_pipeline_parameters_fileName')]"
+							"folderPath": "@triggerBody().folderPath",
+							"fileName": "@triggerBody().fileName"
 						}
 					}
 				],
@@ -258,7 +229,7 @@
 				"typeProperties": {
 					"blobPathBeginsWith": "/private/blobs/",
 					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
+					"scope": "/subscriptions/eff84aa6-34a8-4e3d-ad33-858b498cd734/resourceGroups/coronaMafat/providers/Microsoft.Storage/storageAccounts/mafatcoronaprivate",
 					"events": [
 						"Microsoft.Storage.BlobCreated"
 					]
