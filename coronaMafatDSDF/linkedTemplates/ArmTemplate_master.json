@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "coronaMafatDSDF"
+		},
+		"key_vault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://coronaMafatKeyVaultNew.vault.azure.net/"
+		},
+		"lakeshare_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "\\\\mafatcoronaprivate.file.core.windows.net\\voicerecording"
+		},
+		"lakeshare_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "AZURE\\mafatcoronaprivate"
+		},
+		"landing_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "P-PRIVATE-BLOB-CSTRING"
+		},
+		"file_created_properties_sync_pipeline_parameters_folderPath": {
+			"type": "string",
+			"defaultValue": "@triggerBody().folderPath"
+		},
+		"file_created_properties_sync_pipeline_parameters_fileName": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
+		"file_created_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/779b3f2b-726d-430d-a1b7-f8c309b3bbd0/resourceGroups/datalake/providers/Microsoft.Storage/storageAccounts/mfatstaging"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"key_vault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('key_vault_properties_typeProperties_baseUrl')]"
+					},
+					"lakeshare_properties_typeProperties_host": {
+						"value": "[parameters('lakeshare_properties_typeProperties_host')]"
+					},
+					"lakeshare_properties_typeProperties_userId": {
+						"value": "[parameters('lakeshare_properties_typeProperties_userId')]"
+					},
+					"landing_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('landing_properties_typeProperties_connectionString_secretName')]"
+					},
+					"file_created_properties_sync_pipeline_parameters_folderPath": {
+						"value": "[parameters('file_created_properties_sync_pipeline_parameters_folderPath')]"
+					},
+					"file_created_properties_sync_pipeline_parameters_fileName": {
+						"value": "[parameters('file_created_properties_sync_pipeline_parameters_fileName')]"
+					},
+					"file_created_properties_typeProperties_scope": {
+						"value": "[parameters('file_created_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
