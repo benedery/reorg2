@@ -301,7 +301,7 @@
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/private/blobs/",
+					"blobPathBeginsWith": "/private/blobs/Mafat/Voice Recordings",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('trigger2_properties_typeProperties_scope')]",
 					"events": [
