@@ -1,20 +1,20 @@
 {
 	"name": "lakeshare",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureFileStorage",
 		"typeProperties": {
-			"host": "\\\\mfatlake.file.core.windows.net\\default",
-			"userId": "AZURE\\mfatlake",
+			"host": "\\\\mafatcoronaprivate.file.core.windows.net\\voicerecording",
+			"userId": "AZURE\\mafatcoronaprivate",
 			"password": {
 				"type": "AzureKeyVaultSecret",
 				"store": {
 					"referenceName": "key_vault",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "targetfilesharekey"
+				"secretName": "P-PRIVATE-FILESHARE-KEY"
 			}
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
