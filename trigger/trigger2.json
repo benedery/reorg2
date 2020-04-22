@@ -17,7 +17,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/private/blobs/",
+			"blobPathBeginsWith": "/private/blobs/Mafat/Voice Recordings",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/eff84aa6-34a8-4e3d-ad33-858b498cd734/resourceGroups/coronaMafat/providers/Microsoft.Storage/storageAccounts/mafatcoronaprivate",
 			"events": [
