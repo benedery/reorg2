@@ -195,7 +195,7 @@
 							"type": "Expression"
 						},
 						"folderPath": {
-							"value": "@substring(dataset().folderPath,13,1000)\n",
+							"value": "@join(skip(split(dataset().folderPath, '/'),2),'/')\n",
 							"type": "Expression"
 						}
 					}
