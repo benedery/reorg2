@@ -1,6 +1,5 @@
 {
 	"name": "landing",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureBlobStorage",
@@ -11,8 +10,9 @@
 					"referenceName": "key_vault",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "landingconnection"
+				"secretName": "P-PRIVATE-BLOB-CSTRING"
 			}
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
