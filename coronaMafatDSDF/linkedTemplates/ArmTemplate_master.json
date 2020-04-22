@@ -35,6 +35,18 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/eff84aa6-34a8-4e3d-ad33-858b498cd734/resourceGroups/coronaMafat/providers/Microsoft.Storage/storageAccounts/mafatcoronaprivate"
 		},
+		"trigger2_properties_sync_pipeline_parameters_folderPath": {
+			"type": "string",
+			"defaultValue": "@triggerBody().folderPath"
+		},
+		"trigger2_properties_sync_pipeline_parameters_fileName": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
+		"trigger2_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/eff84aa6-34a8-4e3d-ad33-858b498cd734/resourceGroups/coronaMafat/providers/Microsoft.Storage/storageAccounts/mafatcoronaprivate"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -82,6 +94,15 @@
 					},
 					"trigger1_properties_typeProperties_scope": {
 						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
+					},
+					"trigger2_properties_sync_pipeline_parameters_folderPath": {
+						"value": "[parameters('trigger2_properties_sync_pipeline_parameters_folderPath')]"
+					},
+					"trigger2_properties_sync_pipeline_parameters_fileName": {
+						"value": "[parameters('trigger2_properties_sync_pipeline_parameters_fileName')]"
+					},
+					"trigger2_properties_typeProperties_scope": {
+						"value": "[parameters('trigger2_properties_typeProperties_scope')]"
 					}
 				}
 			},
