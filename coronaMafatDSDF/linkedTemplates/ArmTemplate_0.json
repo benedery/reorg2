@@ -179,7 +179,7 @@
 							"type": "Expression"
 						},
 						"folderPath": {
-							"value": "@dataset().folderPath",
+							"value": "substring(@dataset().folderPath,13)\n",
 							"type": "Expression"
 						}
 					}
